@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.okhospital.myapp.mapper.TimeMapper">
+	<select id="getTime1" resultType="String">SELECT to_char(SYSDATE, 'YYYY-MM-DD HH:MI:SS') FROM dual</select>
+</mapper>

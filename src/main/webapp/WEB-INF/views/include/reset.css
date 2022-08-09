@@ -1,0 +1,13 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+* { margin: 0; padding: 0; }
+body, html { width: 100%; font-family: 'Nanum Gothic', sans-serif; }
+ul { list-style: none; }
+a { text-decoration: none; }
+img { border: 0; }
+button, input[type="submmit"], input[type="reset"], input[type="button"] { display:inline-block
+    border: 0; outline:0;  }
+
+/* 스크롤바 보이지 않게 하기 */
+body, html { -ms-overflow-style:none; scrollbar-width:none; }
+body::-webkit-scrollbar { display:none; } 

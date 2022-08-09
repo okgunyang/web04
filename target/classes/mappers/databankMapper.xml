@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="databank">
+	<!--  목록 불러오기 -->
+	<select id="databankList" resultType="com.okhospital.dto.DatabankDTO" >
+		select * from databank order by regdate desc
+	</select>
+	<!-- 글 상세보기 -->
+	<select id="databankRead" resultType="com.okhospital.dto.DatabankDTO" >
+		select * from databank where datano = #{datano }
+	</select>
+	<!-- 글 쓰기 -->
+	<insert id="databankWrite">
+		insert into databank (datano, dtitle, dcontent, dposter, dfilename, dview, regdate) 
+		values ((select nvl(max(datano)+1, 1) from databank), #{dtitle }, #{dcontent }, #{dposter }, 
+		#{dfilename }, 'Y', sysdate)
+	</insert>
+	<!-- 글 수정 -->
+	<update id="databankUpdate">
+		update databank set dtitle=#{dtitle }, dcontent=#{dcontent }, dposter=#{dposter }, 
+		dfilename=#{dfilename } where datano=#{datano }
+	</update>
+	<!-- 글 수정 -->
+	<delete id="databankDelete">
+		delete from databank where datano=#{datano }
+	</delete>
+</mapper>
